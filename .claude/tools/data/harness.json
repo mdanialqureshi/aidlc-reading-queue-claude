@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "distribution": "claude",
+  "productName": "Claude Code",
+  "configNextStep": "open Claude Code in this project and run `/aidlc --doctor`",
+  "name": "claude",
+  "harnessDir": ".claude",
+  "rulesSubdir": "rules",
+  "providers": {
+    "schemaVersion": 1,
+    "provider": "amazon-bedrock",
+    "region": "us-west-2",
+    "profile": "claude-code-DO-NOT-DELETE",
+    "pendingActions": [
+      {
+        "id": "bedrock-model-access",
+        "status": "done"
+      }
+    ]
+  }
+}
