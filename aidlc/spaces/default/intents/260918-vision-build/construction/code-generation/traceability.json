@@ -1,0 +1,42 @@
+{
+  "stage": "code-generation",
+  "upstream_ids": [
+    "FR1",
+    "FR2",
+    "FR3",
+    "FR4",
+    "FR5",
+    "FR6",
+    "FR7",
+    "NFR1",
+    "NFR2",
+    "NFR3",
+    "NFR4",
+    "NFR5",
+    "NFR6",
+    "NFR7",
+    "NFR8"
+  ],
+  "coverage": [
+    {
+      "id": "FR1",
+      "status": "OK",
+      "target": "src/persistence/store.ts",
+      "note": "Item model in src/domain/item.ts (id, title, url, tags, status default unread, ISO 8601 UTC timestamps); path resolution, ENOENT->empty load, atomic temp-file+rename save, and monotonic nextId (IDs never reused) in src/persistence/store.ts."
+    },
+    { "id": "FR2", "status": "OK", "target": "src/core/queue.ts", "note": "add(): unread item, missing-title and malformed-URL rejection, repeated tags, duplicate URLs allowed." },
+    { "id": "FR3", "status": "OK", "target": "src/core/queue.ts", "note": "list(): newest-first sort, status/tag filters combined with AND." },
+    { "id": "FR4", "status": "OK", "target": "src/core/queue.ts", "note": "start()/complete() set status and bump updatedAt from any prior status; unknown ID rejected." },
+    { "id": "FR5", "status": "OK", "target": "src/core/queue.ts", "note": "remove(): deletes item, leaves nextId untouched so IDs are never reused; unknown ID rejected." },
+    { "id": "FR6", "status": "OK", "target": "src/core/queue.ts", "note": "next(): oldest unread, optional tag filter, read-only (no status mutation), undefined when none match." },
+    { "id": "FR7", "status": "OK", "target": "src/cli/index.ts", "note": "Argument parsing, command dispatch, actionable error messages, exit codes (0 success, 1 user error, 2 fatal)." },
+    { "id": "NFR1", "status": "N/A", "target": "package.json", "note": "Runtime target declared via engines.node >=18; no dedicated implementation file." },
+    { "id": "NFR2", "status": "OK", "target": "tsconfig.json", "note": "strict: true, NodeNext; typecheck passes with no type errors." },
+    { "id": "NFR3", "status": "N/A", "target": "package.json", "note": "Zero runtime dependencies; only Node built-ins used. No dedicated implementation file." },
+    { "id": "NFR4", "status": "OK", "target": "src/core/queue.ts", "note": "Distinct domain/persistence/core/cli/bin modules, each independently testable." },
+    { "id": "NFR5", "status": "OK", "target": "src/persistence/store.ts", "note": "Atomic save (temp file + rename) leaves the prior valid file intact on interruption." },
+    { "id": "NFR6", "status": "OK", "target": "src/cli/cli.test.ts", "note": "Unit tests (domain/persistence/core) plus command-level integration tests against a temp file covering transitions, filtering, next, invalid input, missing IDs, atomic persistence." },
+    { "id": "NFR7", "status": "OK", "target": "package.json", "note": "npm scripts build/typecheck/test/lint (and format) all pass." },
+    { "id": "NFR8", "status": "OK", "target": "README.md", "note": "Documents install, data-file location/override, and usage of all six commands." }
+  ]
+}

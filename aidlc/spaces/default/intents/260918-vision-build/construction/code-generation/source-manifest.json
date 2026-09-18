@@ -1,0 +1,24 @@
+{
+  "stage": "code-generation",
+  "version": 1,
+  "writes": [
+    { "path": "package.json" },
+    { "path": "package-lock.json" },
+    { "path": "tsconfig.json" },
+    { "path": "tsconfig.build.json" },
+    { "path": "vitest.config.ts" },
+    { "path": "eslint.config.js" },
+    { "path": ".prettierrc.json" },
+    { "path": ".prettierignore" },
+    { "path": "README.md" },
+    { "path": "src/domain/item.ts" },
+    { "path": "src/domain/item.test.ts" },
+    { "path": "src/persistence/store.ts" },
+    { "path": "src/persistence/store.test.ts" },
+    { "path": "src/core/queue.ts" },
+    { "path": "src/core/queue.test.ts" },
+    { "path": "src/cli/index.ts" },
+    { "path": "src/cli/cli.test.ts" },
+    { "path": "src/bin/reading-queue.ts" }
+  ]
+}
